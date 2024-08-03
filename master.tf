@@ -36,17 +36,17 @@ module "load-balancer-target-group" {
 }
 
 module "application-load-balancer" {
-  source = "./load-balancer"
-  lb_name = "alb"
-  lb_internal = "false"
-  lb_type = "application"
-  lb_security_groups = [module.security_groups.sg_ec2_sg_ssh_http]
-  lb_subnets = tolist(module.networking.public_subnets)
-  lb_target_group_arn = module.load-balancer-target-group.lb_target_group_arn
+  source                          = "./load-balancer"
+  lb_name                         = "alb"
+  lb_internal                     = "false"
+  lb_type                         = "application"
+  lb_security_groups              = [module.security_groups.sg_ec2_sg_ssh_http]
+  lb_subnets                      = tolist(module.networking.public_subnets)
+  lb_target_group_arn             = module.load-balancer-target-group.lb_target_group_arn
   lb_target_group_attachment_port = 8080
-  ec2_instance_id = module.ec2-jenkins.jenkins_ec2_instance_id
-  listener_port = 80
-  lb_listner_protocol = "HTTP"
-  listener_default_action = "forward"
-  listener_target_group_arn = module.load-balancer-target-group.lb_target_group_arn
+  ec2_instance_id                 = module.ec2-jenkins.jenkins_ec2_instance_id
+  listener_port                   = 80
+  lb_listner_protocol             = "HTTP"
+  listener_default_action         = "forward"
+  listener_target_group_arn       = module.load-balancer-target-group.lb_target_group_arn
 }

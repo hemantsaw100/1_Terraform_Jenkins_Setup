@@ -3,11 +3,5 @@ terraform {
     bucket = "terraform-jenkins-setup"
     key = "1_Terraform_Jenkins_Setup\remote_backend_s3.tf"
     region = "ap-south-1"
-
-    tags = {
-      Name    = "Terraform Jenkins Setup Bucket"
-      Section = "1"
-    }
   }
-
 }

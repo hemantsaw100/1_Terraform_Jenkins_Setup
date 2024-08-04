@@ -18,8 +18,8 @@ resource "aws_lb_target_group" "lb_target_group" {
         path = "/login"
         port = 8080
         protocol = "HTTP"
-        timeout = 2
-        interval = 5
+        timeout = 5
+        interval = 8
         healthy_threshold = 6
         unhealthy_threshold = 2
         matcher = "200" # Has to be HTTP 200 or fails.  
